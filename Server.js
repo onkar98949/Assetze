@@ -10,16 +10,16 @@ app.post('/calculate_asset_depreciation',(req,res)=>{
     const { asset , salvage , duration} = req.body;
 
     if(!asset|| !salvage || !duration){
-        res.status(400).json({msg:"Enter all values"})
+        res.status(400).json({msg:"Enter all values"});
     }else{
         const deprication = (asset - (asset*salvage/100))/duration;
 
         const data = [];
         for (let i=0; i<duration; i++) {
-            data.push({'year':i+2023 , 'amount':deprication })
+            data.push({'year':i+2023 , 'amount':deprication });
         }
 
-        res.status(200).json(data)
+        res.status(200).json(data);
     }
 
 })
